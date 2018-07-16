@@ -5,10 +5,15 @@ import './index.css';
 import App from './App';
 import store from './store'
 import registerServiceWorker from './registerServiceWorker';
+import DevTools from './containers/DevTools';
+
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <div>
+            <DevTools/>
+            <App />
+        </div>
     </Provider>,
 document.getElementById('root'));
 registerServiceWorker();
