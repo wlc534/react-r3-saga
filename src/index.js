@@ -11,7 +11,7 @@ import DevTools from './containers/DevTools';
 ReactDOM.render(
     <Provider store={store}>
         <div>
-            <DevTools/>
+            {/*<DevTools/> 方式Ⅰ 放开注释*/}
             <App />
         </div>
     </Provider>,
