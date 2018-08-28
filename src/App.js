@@ -13,6 +13,7 @@ import NumCardConX from './containers/NumCard'
 import SideMeu from './components/SideMeu'
 import Loadable from 'react-loadable'
 import Fu from './components/Fu';
+import WiseCharts from './components/WiseCharts'
  
 
 const Login = (props) => {
@@ -85,6 +86,7 @@ class App extends Component {
                     <Route path='/get' component={ GetListCon}/>
                     <Route path='/login' component={ Login}/>
                     <Route path="/inbox" component={Inbox} />
+                    <Route path="/charts" component={WiseCharts} />
                     <Route path='/home' render={()=><Redirect to='/login'/>}/>
                 </div>
             </Router>

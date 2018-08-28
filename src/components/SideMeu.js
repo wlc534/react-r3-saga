@@ -12,6 +12,7 @@ const SideMeu=()=>(
             <li><Link to='/saga'>【4】saga异步数据</Link></li>
             <li><Link to='/inbox/messages/55'>【5】嵌套路由V4</Link></li>
             <li><Link to='/home'>【6】路由重定向</Link></li>
+            <li><Link to='/charts'>【7】WiseCharts</Link></li>
         </ul>
     </nav>
 </header>
