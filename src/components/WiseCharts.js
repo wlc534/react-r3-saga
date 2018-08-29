@@ -40,6 +40,7 @@ export default class WiseCharts extends Component{
                 {
                     name:'邮件营销',
                     type:'line',
+                    symbol:'rect',
                     stack: '总量',
                     data:[120, 132, 101, 134, 90, 230, 210]
                 },
@@ -67,6 +68,9 @@ export default class WiseCharts extends Component{
                     stack: '总量',
                     data:[820, 932, 901, 934, 1290, 1330, 1320]
                 }
+            ],
+            color: [
+                '#FF9C6E', '#FFC069', '#95DE64', '#5CDBD3', '#69C0FF', '#85A5FF', '#B37FEB', '#FF85C0'
             ]
         };
 
