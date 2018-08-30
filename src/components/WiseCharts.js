@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
+import {Icon} from 'antd';
 export default class WiseCharts extends Component{
     constructor(props){
         super(props);
@@ -15,7 +16,14 @@ export default class WiseCharts extends Component{
                 trigger: 'axis'
             },
             legend: {
-                data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+                // data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+                data:[
+                    {name:'邮件营销',icon:'circle'},
+                    {name:'联盟广告',icon:'circle'},
+                    {name:'视频广告',icon:'circle'},
+                    {name:'直接访问',icon:'circle'},
+                    {name:'搜索引擎',icon:'circle'},
+                ]
             },
             grid: {
                 left: '3%',
@@ -47,6 +55,7 @@ export default class WiseCharts extends Component{
                 {
                     name:'联盟广告',
                     type:'line',
+                    symbol:'path://M 18,3 L 46,3 L 46,40 L 61,40 L 32,68 L 3,40 L 18,40 Z',
                     stack: '总量',
                     data:[220, 182, 191, 234, 290, 330, 310]
                 },
