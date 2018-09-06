@@ -10,13 +10,13 @@ export default class WiseCharts extends Component{
     getOption(){
         return {
             title: {
-                text: '多折线图'
+                text: '折线图堆叠'
             },
             tooltip: {
                 trigger: 'axis'
             },
             legend: {
-                
+                // data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
                 data:[
                     {name:'邮件营销',icon:'circle'},
                     {name:'联盟广告',icon:'circle'},
@@ -24,18 +24,6 @@ export default class WiseCharts extends Component{
                     {name:'直接访问',icon:'circle'},
                     {name:'搜索引擎',icon:'circle'},
                 ]
-            },
-            dataset:{
-                source:{
-                    week:['周一','周二','周三','周四','周五','周六','周日'],
-                    '邮件营销':[120, 132, 101, 134, 90, 230, 210],
-                    '联盟广告':[220, 182, 191, 234, 290, 330, 310],
-                    '视频广告':[150, 232, 201, 154, 190, 330, 410],
-                    '直接访问':[320, 332, 301, 334, 390, 330, 320],
-                    '搜索引擎':[820, 932, 901, 934, 1290, 1330, 1320],
-
-                }
-
             },
             grid: {
                 left: '3%',
@@ -51,28 +39,44 @@ export default class WiseCharts extends Component{
             xAxis: {
                 type: 'category',
                 boundaryGap: false,
-               
+                data: ['周一','周二','周三','周四','周五','周六','周日']
             },
             yAxis: {
                 type: 'value'
             },
             series: [
                 {
-                   type:'line'
+                    name:'邮件营销',
+                    type:'line',
+                    symbol:'rect',
+                    stack: '总量',
+                    data:[120, 132, 101, 134, 90, 230, 210]
                 },
                 {
-                   type:'line'
+                    name:'联盟广告',
+                    type:'line',
+                    symbol:'path://M 18,3 L 46,3 L 46,40 L 61,40 L 32,68 L 3,40 L 18,40 Z',
+                    stack: '总量',
+                    data:[220, 182, 191, 234, 290, 330, 310]
                 },
                 {
-                   type:'line'
+                    name:'视频广告',
+                    type:'line',
+                    stack: '总量',
+                    data:[150, 232, 201, 154, 190, 330, 410]
                 },
                 {
-                   type:'line'
+                    name:'直接访问',
+                    type:'line',
+                    stack: '总量',
+                    data:[320, 332, 301, 334, 390, 330, 320]
                 },
                 {
-                   type:'line'
-                },
-                
+                    name:'搜索引擎',
+                    type:'line',
+                    stack: '总量',
+                    data:[820, 932, 901, 934, 1290, 1330, 1320]
+                }
             ],
             color: [
                 '#FF9C6E', '#FFC069', '#95DE64', '#5CDBD3', '#69C0FF', '#85A5FF', '#B37FEB', '#FF85C0'
