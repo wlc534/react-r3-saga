@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import ReactEcharts from 'echarts-for-react';
-import {Icon} from 'antd';
 export default class WiseCharts extends Component{
     constructor(props){
         super(props);
@@ -8,6 +7,15 @@ export default class WiseCharts extends Component{
 
     }
     getOption(){
+        const source={
+            week:['周一','周二','周三','周四','周五','周六','周日'],
+                 '邮件营销':[120, 132, 101, 134, 90, 230, 210],
+                  '联盟广告':[220, 182, 191, 234, 290, 330, 310],
+                  '视频广告':[150, 232, 201, 154, 190, 330, 410],
+                  '直接访问':[320, 332, 301, 334, 390, 330, 320],
+                  '搜索引擎':[820, 932, 901, 934, 1290, 1330, 1320],
+
+        };
         return {
             title: {
                 text: '多折线图'
@@ -16,7 +24,7 @@ export default class WiseCharts extends Component{
                 trigger: 'axis'
             },
             legend: {
-                
+                bottom: '3%',
                 data:[
                     {name:'邮件营销',icon:'circle'},
                     {name:'联盟广告',icon:'circle'},
@@ -26,25 +34,24 @@ export default class WiseCharts extends Component{
                 ]
             },
             dataset:{
-                source:{
-                    week:['周一','周二','周三','周四','周五','周六','周日'],
-                    '邮件营销':[120, 132, 101, 134, 90, 230, 210],
-                    '联盟广告':[220, 182, 191, 234, 290, 330, 310],
-                    '视频广告':[150, 232, 201, 154, 190, 330, 410],
-                    '直接访问':[320, 332, 301, 334, 390, 330, 320],
-                    '搜索引擎':[820, 932, 901, 934, 1290, 1330, 1320],
-
-                }
+                source
 
             },
             grid: {
                 left: '3%',
                 right: '4%',
-                bottom: '3%',
+                bottom: '10%',
                 containLabel: true
             },
             toolbox: {
+                show: true,
                 feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    dataView: {readOnly: false},
+                    magicType: {type: ['line', 'bar']},
+                    restore: {},
                     saveAsImage: {}
                 }
             },
