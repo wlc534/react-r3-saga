@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 
 import ReactEcharts from 'echarts-for-react';
+import './WiseCharts.css'
 
 const getKeys = data => Object.keys(data);
 
@@ -30,15 +31,6 @@ export default class WiseCharts extends Component {
             legendTrStr += `<td>${item}</td>`;
 
         });
-
-        // const source = {
-        //     week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-        //     '邮件营销': [120, 132, 101, 134, 90, 230, 210],
-        //     '联盟广告': [220, 182, 191, 234, 290, 330, 310],
-        //     '视频广告': [150, 232, 201, 154, 190, 330, 410],
-        //     '直接访问': [320, 332, 301, 334, 390, 330, 320],
-        //     '搜索引擎': [820, 932, 901, 934, 1290, 1330, 1320],
-        // };
 
         return {
             title: {
@@ -70,7 +62,24 @@ export default class WiseCharts extends Component {
                         yAxisIndex: 'none'
                     },
                     dataView: {
-                        readOnly: false
+                        readOnly: false,
+                        optionToContent: function otc(opt) {
+                            const timeArr = Object.values(opt.dataset[0].source);
+                            let table = `<table style="width:100%;text-align:center;background-color: #f5f5f5" class='reference'><tbody><tr>
+                        <td>时间</td>${legendTrStr}
+                        </tr>`;
+                            for (let i = 0, l = timeArr[0].length; i < l; i += 1) {
+                                let tdElm = ``;
+                                for (let j = 1; j < timeArr.length; j += 1) {
+                                    const element = timeArr[j][i];
+                                    tdElm += `<td>${element}</td>`;
+                                }
+                                table += `<tr><td>${timeArr[0][i]}</td>${tdElm}
+                        </tr>`;
+                            }
+                            table += '</tbody></table>';
+                            return table;
+                        },
                     },
                     magicType: {
                         type: ['line', 'bar']

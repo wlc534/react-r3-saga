@@ -1,0 +1,17 @@
+.reference {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+table.reference tr {
+  height: 40px;
+  border-bottom: 1px solid #e8e8e8;
+}
+table.reference tr:nth-child(odd) {
+  background-color: #f6f4f0;
+}
+table.reference tr:hover {
+  background-color: #ff9c6e;
+}
