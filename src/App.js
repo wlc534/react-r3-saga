@@ -47,6 +47,15 @@ const Inbox = ({ match }) => {
         </Card>
     )
 }
+
+const data={
+    week: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+    '邮件营销': [120, 132, 101, 134, 90, 230, 210],
+    '联盟广告': [220, 182, 191, 234, 290, 330, 310],
+    '视频广告': [150, 232, 201, 154, 190, 330, 410],
+    '直接访问': [320, 332, 301, 334, 390, 330, 320],
+    '搜索引擎': [820, 932, 901, 934, 1290, 1330, 1320],
+}
  
 const Loading=()=>{
     return <Spin size="large"/>
@@ -86,7 +95,7 @@ class App extends Component {
                     <Route path='/get' component={ GetListCon}/>
                     <Route path='/login' component={ Login}/>
                     <Route path="/inbox" component={Inbox} />
-                    <Route path="/charts" component={WiseCharts} />
+                    <Route path="/charts" render={()=><WiseCharts type='line' title='多曲线图' data={data}/>} />
                     <Route path='/home' render={()=><Redirect to='/login'/>}/>
                 </div>
             </Router>
