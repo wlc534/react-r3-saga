@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 
 import ReactEcharts from 'echarts-for-react';
+import echarts from 'echarts'
 import './WiseCharts.css'
 
 const getKeys = data => Object.keys(data);
@@ -18,8 +19,16 @@ export default class WiseCharts extends Component {
         super(props);
         this.getOption = this.getOption.bind(this);
     }
+    componentDidMount(){
+        const echartsInstanceOne=this.echarts_react_one.getEchartsInstance()
+        const echartsInstancetwo=this.echarts_react_two.getEchartsInstance()
+        echarts.connect([echartsInstanceOne,echartsInstancetwo])
+    }
 
     getOption() {
+        setTimeout(() => {
+            console.log(this.echarts_react)
+        }, 1000);
         const [first, ...legendData] = getKeys(this.props.data);
         const legendDataArr = [];
         let legendTrStr = '';
@@ -112,8 +121,12 @@ export default class WiseCharts extends Component {
     
 
     render() {
+        // const echarts_instance = this.echarts_react.getEchartsInstance();
+        // console.info(echarts_instance)
+        // console.log(this.echarts_react)
         return (
-            <ReactEcharts option = {
+            <div style={{height:800,width:900,display:'flex'}}>
+                 <ReactEcharts option = {
                 this.getOption()
             } style = {
                 {
@@ -121,6 +134,20 @@ export default class WiseCharts extends Component {
                     width: '60%'
                 }
             }
+            ref={(e) => { this.echarts_react_one = e; }} 
             className = 'react_for_echarts' / >
+             <ReactEcharts option = {
+                this.getOption()
+            } style = {
+                {
+                    height: '350px',
+                    width: '60%'
+                }
+            }
+            ref={(e) => { this.echarts_react_two = e; }} 
+            className = 'react_for_echarts' / >
+
+            </div>
+           
        )}
 }
