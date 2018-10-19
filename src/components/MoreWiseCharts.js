@@ -8,7 +8,7 @@ import './WiseCharts.css'
 
 const getKeys = data => Object.keys(data);
 
-export default class WiseCharts extends Component {
+export default class MoreWiseCharts extends Component {
     static defaultProps = {
         height: 400,
         title: '默认名称',

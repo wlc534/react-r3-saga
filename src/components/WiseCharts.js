@@ -10,6 +10,7 @@ const getKeys = data => Object.keys(data);
 export default class WiseCharts extends Component {
     static defaultProps = {
         height: 400,
+        width:'60%',
         title: '默认名称',
         type: 'line'
     };
@@ -112,13 +113,14 @@ export default class WiseCharts extends Component {
     
 
     render() {
+        let {width,height}=this.props;
         return (
             <ReactEcharts option = {
                 this.getOption()
             } style = {
                 {
-                    height: '350px',
-                    width: '60%'
+                    height,
+                    width
                 }
             }
             className = 'react_for_echarts' / >

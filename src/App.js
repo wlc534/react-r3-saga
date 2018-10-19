@@ -15,6 +15,7 @@ import Loadable from 'react-loadable'
 import Fu from './components/Fu';
 import WiseCharts from './components/WiseCharts'
 import MoreWiseCharts from './components/MoreWiseCharts'
+import GridCharts from './components/GridCharts';
 
 const Login = (props) => {
         console.log(props)
@@ -80,6 +81,7 @@ const SagaAsyCon = Loadable({
 
 
 
+
  
 class App extends Component {
     render() {
@@ -97,6 +99,7 @@ class App extends Component {
                     <Route path="/inbox" component={Inbox} />
                     <Route path="/charts" render={()=><WiseCharts type='line' title='多曲线图' data={data}/>} />
                     <Route path="/morecharts" render={()=><MoreWiseCharts type='line' title='多曲线图联动' data={data}/>} />
+                    <Route path="/gridcharts" component={GridCharts} />
                     <Route path='/home' render={()=><Redirect to='/login'/>}/>
                 </div>
             </Router>
