@@ -15,6 +15,7 @@ const SideMeu=()=>(
             <li><Link to='/charts'>【7】WiseCharts</Link></li>
             <li><Link to='/morecharts'>【8】Charts联动</Link></li>
             <li><Link to='/gridcharts'>【9】可拖拽Charts</Link></li>
+            <li><Link to='/hooks'>【10】React Hooks</Link></li>
         </ul>
     </nav>
 </header>

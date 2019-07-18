@@ -16,6 +16,7 @@ import Fu from './components/Fu';
 import WiseCharts from './components/WiseCharts'
 import MoreWiseCharts from './components/MoreWiseCharts'
 import GridCharts from './components/GridCharts';
+import SearchResults from './components/SearchResults';
 
 const Login = (props) => {
         console.log(props)
@@ -100,6 +101,7 @@ class App extends Component {
                     <Route path="/charts" render={()=><WiseCharts type='line' title='多曲线图' data={data}/>} />
                     <Route path="/morecharts" render={()=><MoreWiseCharts type='line' title='多曲线图联动' data={data}/>} />
                     <Route path="/gridcharts" component={GridCharts} />
+                    <Route path="/hooks" component={SearchResults} />
                     <Route path='/home' render={()=><Redirect to='/login'/>}/>
                 </div>
             </Router>
